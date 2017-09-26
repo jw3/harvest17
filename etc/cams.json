@@ -1,0 +1,20 @@
+{
+    "cams": [
+        {
+            "name": "top",
+            "host": "cam1",
+            "port": 554,
+            "user": "admin",
+            "pass": "WTBkR2VtTXpaSFpqYlZGTENnPT0K",
+            "screen": "0 0 400 300"
+        },
+        {
+            "name": "bottom",
+            "host": "cam2",
+            "port": 554,
+            "user": "admin",
+            "pass": "WTBkR2VtTXpaSFpqYlZGTENnPT0K",
+            "screen": "400 0 800 300"
+        }
+    ]
+}
