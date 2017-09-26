@@ -1,0 +1,16 @@
+ddns-update-style none;
+log-facility local7;
+
+default-lease-time 600;
+max-lease-time 7200;
+
+#authoritative;
+
+subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.101 192.168.1.105;
+  option broadcast-address 192.168.1.255;
+  option routers 192.168.1.1;
+  option domain-name-servers 8.8.8.8, 8.8.4.4;
+}
+
+include "dhcpd.mesh1";
