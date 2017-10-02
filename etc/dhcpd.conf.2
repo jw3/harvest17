@@ -13,4 +13,5 @@ subnet 192.168.2.0 netmask 255.255.255.0 {
   option domain-name-servers 8.8.8.8, 8.8.4.4;
 }
 
-include "dhcpd.mesh.2";
+include "/etc/dhcpd.mesh.2";
+include "/etc/dhcpd.cam.2.1";
