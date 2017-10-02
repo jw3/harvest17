@@ -4,6 +4,11 @@ readonly profile="1"
 readonly rootdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/..
 
 #
+# install bin to /usr/local/bin
+#
+cp ${rootdir}/bin/* /usr/local/bin
+
+#
 # install /etc/default
 #
 cp ${rootdir}/etc/default/* /etc/default
