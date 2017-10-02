@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-readonly camconfig="${2:-/etc/cams.json}"
+readonly camconfig="${3:-/etc/cams.json}"
 
 view() {
   local camname="$1"
