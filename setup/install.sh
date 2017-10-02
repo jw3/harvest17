@@ -25,6 +25,18 @@ ln -s /dev/null /etc/systemd/network/99-default.link
 
 
 #
+# add init.d scripts
+#
+cp ${rootdir}/etc/init.d/* /etc/init.d
+
+#
 # update rc.d
 #
 update-rc.d isc-dhcp-server start
+update-rc.d isc-dhcp-server start
+update-rc.d cam-views defaults
+
+#
+# install cron jobs
+#
+cp ${rootdir}/etc/cron.d/* /etc/cron.d
