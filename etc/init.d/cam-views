@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+### BEGIN INIT INFO
+# Provides: omxplayer
+# Required-Start:
+# Required-Stop:
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Camera Viewers
+# Description: Manage the cam viewers
+### END INIT INFO
+
+cam=/usr/local/bin/cam
+cams=(cam1 cam2)
+
+case "$1" in
+  start)
+    for c in "${cams[@]}"; do echo "starting view.sh $c"; $("$cam" view "$c"); done
+    ;;
+
+  stop)
+    sudo killall omxplayer.bin
+    echo "cameras stopped"
+    ;;
+
+  repair)
+    for c in "${cams[@]}"; do
+      if !(screen -list | grep -q "$c"); then
+        $("$cam" view "$c")
+        echo "$c was restarted"
+      fi
+    done
+    ;;
+
+  *)
+    echo "Usage: /etc/init.d/cam-views {start|stop|repair}"
+    exit 1
+
+esac
+
+exit 0
