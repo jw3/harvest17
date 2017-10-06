@@ -32,8 +32,7 @@ cp ${rootdir}/etc/init.d/* /etc/init.d
 #
 # update rc.d
 #
-update-rc.d isc-dhcp-server start
-update-rc.d isc-dhcp-server start
+update-rc.d isc-dhcp-server defaults
 update-rc.d cam-views defaults
 
 #
