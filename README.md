@@ -1,5 +1,8 @@
 setup scripts for mvf pi project
 
+### installation
+
+`curl https://raw.githubusercontent.com/jw3/mvf/master/setup/apt.sh | sudo bash`
 
 ### references
 - https://github.com/popcornmix/omxplayer
