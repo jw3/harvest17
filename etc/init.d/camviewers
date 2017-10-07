@@ -11,7 +11,7 @@
 ### END INIT INFO
 
 cam=/usr/local/bin/cam
-cams=(cam1 cam2)
+cams=(top bottom)
 
 case "$1" in
   start)
