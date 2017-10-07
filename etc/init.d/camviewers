@@ -15,7 +15,7 @@ cams=(cam1 cam2)
 
 case "$1" in
   start)
-    for c in "${cams[@]}"; do echo "starting view.sh $c"; $("$cam" view "$c"); done
+    for c in "${cams[@]}"; do echo "starting $cam view $c"; $("$cam" view "$c"); done
     ;;
 
   stop)
@@ -33,7 +33,7 @@ case "$1" in
     ;;
 
   *)
-    echo "Usage: /etc/init.d/cam-views {start|stop|repair}"
+    echo "Usage: /etc/init.d/camviewers {start|stop|repair}"
     exit 1
 
 esac
