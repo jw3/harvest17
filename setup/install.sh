@@ -34,6 +34,7 @@ cp ${rootdir}/etc/init.d/* /etc/init.d
 #
 update-rc.d isc-dhcp-server defaults
 update-rc.d camviewers defaults
+update-rc.d power-button defaults
 
 #
 # install cron jobs
