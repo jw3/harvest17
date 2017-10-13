@@ -32,7 +32,7 @@ ln -s /dev/null /etc/systemd/network/99-default.link
 # install dhcpd configs
 #
 cp ${rootdir}/etc/dhcpd.mesh.${profile} /etc
-cp ${rootdir}/etc/dhcpd.conf.${profile}.* /etc
+cp ${rootdir}/etc/dhcpd.cam.${profile}.* /etc
 cp ${rootdir}/etc/dhcpd.conf.${profile} /etc/dhcpd.conf
 
 #
