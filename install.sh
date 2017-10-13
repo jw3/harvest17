@@ -4,6 +4,24 @@ readonly profile="1"
 readonly rootdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/..
 
 #
+# install apt dependencies
+#
+apt-get update
+apt-get install -y git nano jq screen omxplayer isc-dhcp-server gpm python-pip
+
+#
+# install python dependencies
+#
+pip install requests
+
+#
+# clone repo
+#
+cd /tmp
+git clone https://github.com/jw3/mvf.git
+cd mvf
+
+#
 # install bin to /usr/local/bin
 #
 cp ${rootdir}/bin/* /usr/local/bin
@@ -52,3 +70,9 @@ update-rc.d touch-waypoint defaults
 # install cron jobs
 #
 cp ${rootdir}/etc/cron.d/* /etc/cron.d
+
+#
+# curl download dependencies
+#
+curl -o /usr/local/bin/wait-for-it.sh "https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh"
+chmod +x /usr/local/bin/wait-for-it.sh
