@@ -23,9 +23,20 @@ cat ${rootdir}/etc/hosts.append.${profile} | tee -a /etc/hosts
 #
 ln -s /dev/null /etc/systemd/network/99-default.link
 
+#
+# install dhcpd configs
+#
+cp ${rootdir}/etc/dhcpd.mesh.${profile} /etc
+cp ${rootdir}/etc/dhcpd.conf.${profile}.* /etc
+cp ${rootdir}/etc/dhcpd.conf.${profile} /etc/dhcpd.conf
 
 #
-# add init.d scripts
+# install cams config
+#
+cp ${rootdir}/etc/cams.json /etc
+
+#
+# install init.d scripts
 #
 cp ${rootdir}/etc/init.d/* /etc/init.d
 
