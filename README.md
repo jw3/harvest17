@@ -5,4 +5,4 @@ Mostly setup scripts...
 
 ### installation
 
-`curl https://raw.githubusercontent.com/jw3/mvf/master/install.sh | sudo bash`
+`curl https://raw.githubusercontent.com/jw3/mvf/master/get.sh | sudo bash`
