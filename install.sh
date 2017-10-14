@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-readonly profile="1"
+readonly profile="${1:-1}"
 readonly rootdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 #
