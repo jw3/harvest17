@@ -4,7 +4,7 @@ readonly camconfig="${3:-/etc/cams.json}"
 
 view() {
   local camname="$1"
-  local player=$(jq --arg cam $camname -r '.cams[] | select(.name | contains($cam)) | "omxplayer --win \"\(.screen)\" \"http://\(.user):\(.pass)@\(.host)/cgi-bin/mjpg/video.cgi" --live --threshold .24 --fps 30 --orientation 270 -r -n -1"' ${camconfig})
+  local player=$(jq --arg cam $camname -r '.cams[] | select(.name | contains($cam)) | "omxplayer --win \"\(.screen)\" \"http://\(.user):\(.pass)@\(.host)/cgi-bin/mjpg/video.cgi\" --live --threshold .24 --fps 30 --orientation 270 -r -n -1"' ${camconfig})
 
   echo "$player"
   screen -dmS "$camname" sh -c "$player"
