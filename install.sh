@@ -19,6 +19,11 @@ cp ${rootdir}/bin/* /usr/local/bin
 cp ${rootdir}/etc/default/* /etc/default
 
 #
+# install network interfaces
+#
+cp ${rootdir}/etc/network/interfaces.d/eth0.${profile} /etc/network/interfaces.d/eth0
+
+#
 # append /etc/hosts
 #
 cat ${rootdir}/etc/hosts.append.${profile} | tee -a /etc/hosts
