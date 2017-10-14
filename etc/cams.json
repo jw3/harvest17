@@ -6,7 +6,8 @@
             "port": 554,
             "user": "admin",
             "pass": "WTBkR2VtTXpaSFpqYlZGTENnPT0K",
-            "screen": "0 0 400 480"
+            "screen": "0 0 400 480",
+            "mode": "rtsp"
         },
         {
             "name": "bottom",
@@ -14,7 +15,8 @@
             "port": 554,
             "user": "admin",
             "pass": "WTBkR2VtTXpaSFpqYlZGTENnPT0K",
-            "screen": "400 0 800 480"
+            "screen": "400 0 800 480",
+            "mode": "mjpg"
         }
     ]
 }
