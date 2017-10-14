@@ -35,7 +35,7 @@ def is_coord(x): return x == 0 or c == 1
 def is_y(x): return True if x else False
 
 
-def y_to_pre(x): return 0 if x < buffer_size else 1 if x > 480 - buffer_size else -1
+def y_to_pre(x): return 1 if x < buffer_size else 2 if x > 480 - buffer_size else 0
 
 
 event = infile.read(EVENT_SIZE)
@@ -46,7 +46,7 @@ while event:
         print "click @ %s %d" % (plane, v)
         if is_y(v):
             preset = y_to_pre(v)
-            if preset > -1:
+            if preset:
                 url = url_template.format(cam_host, preset)
                 print url
                 requests.get(url, auth=HTTPDigestAuth(username, password))
