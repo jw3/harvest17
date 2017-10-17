@@ -15,11 +15,14 @@ cams=(top bottom)
 
 case "$1" in
   start)
-    for c in "${cams[@]}"; do echo "starting $cam view $c"; $("$cam" view "$c"); done
+    for c in "${cams[@]}"; do
+      $("$cam" start "$c")
+      echo $! >> "/tmp/cam-$c.pid"
+    done
     ;;
 
   stop)
-    sudo killall omxplayer.bin
+    kill $(cat /tmp/cam-*.pid)
     echo "cameras stopped"
     ;;
 

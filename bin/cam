@@ -22,8 +22,24 @@ view() {
   local name="$1"
   local mode=$(jq --arg cam $name -r '.cams[] | select(.name | contains($cam)) | .mode' ${camconfig})
 
-  echo "viewing $mode $name"
+  echo "viewing $name as $mode"
   $("$mode" "$name")
 }
+
+start() {
+  local name="$1"
+  local uri=$(jq --arg cam "$name" -r '.cams[] | select(.name | contains($cam)) | [.host, .port|tostring] | join(":")'  "$camconfig")
+
+  if [[ ! -z "$uri" ]]; then
+    echo "starting camera service [$name] at [$uri]"
+    while true; do
+      wait-for-it.sh ${uri} --timeout=0 --strict -- cam view ${name}
+      sleep 2
+    done
+  else
+    echo "camera service [$name] is not configured"
+  fi
+}
+
 
 "$@"
