@@ -47,9 +47,12 @@ while event:
         if is_y(v):
             preset = y_to_pre(v)
             if preset:
-                url = url_template.format(cam_host, preset)
-                print url
-                requests.get(url, auth=HTTPDigestAuth(username, password))
+                try:
+                    url = url_template.format(cam_host, preset)
+                    print url
+                    requests.get(url, auth=HTTPDigestAuth(username, password))
+                except:
+                    print "failed to set %d on %s" % (preset, cam_host)
 
     event = infile.read(EVENT_SIZE)
 
