@@ -7,6 +7,11 @@ RUN yum update -y \
         bzip2 zlib-static zlib-devel libssl openssl openssl-devel \
         perl-Data-Dumper perl-Thread-Queue
 
+RUN git clone https://dev.cloudtrax.com/git/ap51-flash.git ap51-flash \
+ && cd ap51-flash \
+ && make \
+ && cd ..
+
 RUN git clone https://github.com/openwrt/openwrt.git
 
 COPY .config openwrt
@@ -15,6 +20,7 @@ RUN cd openwrt \
  && scripts/feeds update -a \
  && scripts/feeds install luci
 
-RUN git clone https://dev.cloudtrax.com/git/ap51-flash.git ap51-flash \
- && cd ap51-flash \
- && make
+RUN cd openwrt \
+ && make defconfig \
+ && grep "^[^#;]" .config | grep -i target \
+ && FORCE_UNSAFE_CONFIGURE=1 make
