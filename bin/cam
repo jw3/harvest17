@@ -4,7 +4,7 @@ readonly camconfig="${3:-/etc/cams.json}"
 
 mjpg() {
   local camname="$1"
-  local player=$(jq --arg cam $camname -r '.cams[] | select(.name | contains($cam)) | "omxplayer --win \"\(.screen)\" \"http://\(.user):\(.pass)@\(.host)/cgi-bin/mjpg/video.cgi\" --live --threshold .24 --fps 30 --orientation 270 -r -n -1"' ${camconfig})
+  local player=$(jq --arg cam $camname -r '.cams[] | select(.name | contains($cam)) | "omxplayer --win \"\(.screen)\" \"http://\(.user):\(.pass)@\(.host)/cgi-bin/mjpg/video.cgi\" --live --threshold .24 --fps 30 --orientation 270 --timeout \(.timeout) -r -n -1"' ${camconfig})
 
   echo "$player"
   screen -dmS "$camname" sh -c "$player"
@@ -12,7 +12,7 @@ mjpg() {
 
 rtsp() {
   local camname="$1"
-  local player=$(jq --arg cam $camname -r '.cams[] | select(.name | contains($cam)) | "omxplayer --avdict rtsp_transport:tcp --win \"\(.screen)\" \"rtsp://\(.user):\(.pass)@\(.host):\(.port)\" --live --threshold .24 --orientation 270 -n -1"' ${camconfig})
+  local player=$(jq --arg cam $camname -r '.cams[] | select(.name | contains($cam)) | "omxplayer --avdict rtsp_transport:tcp --win \"\(.screen)\" \"rtsp://\(.user):\(.pass)@\(.host):\(.port)\" --live --threshold .24 --orientation 270 --timeout \(.timeout) -n -1"' ${camconfig})
 
   echo "$player"
   screen -dmS "$camname" sh -c "$player"

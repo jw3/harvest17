@@ -7,7 +7,8 @@
             "user": "admin",
             "pass": "WTBkR2VtTXpaSFpqYlZGTENnPT0K",
             "screen": "0 0 400 480",
-            "mode": "rtsp"
+            "mode": "rtsp",
+            "timeout": 5
         },
         {
             "name": "bottom",
@@ -16,7 +17,8 @@
             "user": "admin",
             "pass": "WTBkR2VtTXpaSFpqYlZGTENnPT0K",
             "screen": "400 0 800 480",
-            "mode": "mjpg"
+            "mode": "rtsp",
+            "timeout": 5
         }
     ]
 }
