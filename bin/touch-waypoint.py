@@ -39,20 +39,21 @@ def y_to_pre(x): return 1 if x < buffer_size else 2 if x > 480 - buffer_size els
 
 
 event = infile.read(EVENT_SIZE)
-while event:
-    (s, u, t, c, v) = struct.unpack(FORMAT, event)
-    if is_abs(t) and is_coord(c):
-        plane = "y" if c else "x"
-        print "click @ %s %d" % (plane, v)
-        if is_y(v):
-            preset = y_to_pre(v)
-            if preset:
-                try:
-                    url = url_template.format(cam_host, preset)
-                    print url
-                    requests.get(url, auth=HTTPDigestAuth(username, password))
-                except:
-                    print "failed to set %d on %s" % (preset, cam_host)
+while True:
+    if event:
+        (s, u, t, c, v) = struct.unpack(FORMAT, event)
+        if is_abs(t) and is_coord(c):
+            plane = "y" if c else "x"
+            print "click @ %s %d" % (plane, v)
+            if is_y(v):
+                preset = y_to_pre(v)
+                if preset:
+                    try:
+                        url = url_template.format(cam_host, preset)
+                        print url
+                        requests.get(url, auth=HTTPDigestAuth(username, password))
+                    except:
+                        print "failed to set %d on %s" % (preset, cam_host)
 
     event = infile.read(EVENT_SIZE)
 
