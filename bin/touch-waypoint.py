@@ -12,7 +12,7 @@ from requests.auth import HTTPDigestAuth
 # for now these are hardcoded
 #
 cam_host = "cam1"
-input_source = "event2"
+input_source = "touchscreen"
 buffer_size = 60
 username = "admin"
 password = "password"
@@ -22,7 +22,7 @@ password = "password"
 FORMAT = 'llhhI'
 EVENT_SIZE = struct.calcsize(FORMAT)
 
-infile = open('/dev/input/{}'.format(input_source), 'rb')
+infile = open('/dev/input/by-id/{}'.format(input_source), 'rb')
 url_template = "http://{}/cgi-bin/ptz.cgi?action=start&channel=1&code=GotoPreset&arg1=0&arg2={}&arg3=0"
 
 
