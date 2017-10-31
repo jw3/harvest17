@@ -13,7 +13,7 @@
 case "$1" in
   start)
     echo "Starting touch-waypoint.py"
-    exec start-stop-daemon --start -c pi --exec /usr/local/bin/touch-waypoint.py
+    exec start-stop-daemon --start -b -c pi --exec /usr/local/bin/touch-waypoint.py
     ;;
   stop)
     echo "Stopping touch-waypoint.py"
