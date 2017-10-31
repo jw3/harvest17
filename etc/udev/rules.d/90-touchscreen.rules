@@ -1,0 +1,1 @@
+KERNEL=="event*",ATTRS{name}=="FT5406 memory based driver",SYMLINK+="input/by-id/touchscreen"

@@ -6,12 +6,14 @@
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
+# Short-Description: Camera touch-waypoints
+# Description: Manage the touchscreen waypoint service
 ### END INIT INFO
 
 case "$1" in
   start)
     echo "Starting touch-waypoint.py"
-    /usr/local/bin/touch-waypoint.py &
+    exec start-stop-daemon --start -b -c pi --exec /usr/local/bin/touch-waypoint.py
     ;;
   stop)
     echo "Stopping touch-waypoint.py"
