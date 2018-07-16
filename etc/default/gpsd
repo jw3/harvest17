@@ -1,0 +1,5 @@
+START_DAEMON="true"
+DEVICES="/dev/ttyS0"
+GPSD_OPTIONS="-n"
+
+#USBAUTO="true"
